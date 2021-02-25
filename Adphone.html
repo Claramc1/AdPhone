@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adpone</title>
+</head>
+<body>
+<h1>AdPhone Test </h1>
+<p id="resultado"></p>
+
+
+
+<!--Escribe una función que dado un input "aaaabbbbbcca" devuelva un output: [["a", 4], ["b", 5], ["c", 2], ["a", 1]]-->
+<script>
+var letters = "aaaabbbbbcca";
+
+//Separar letras
+var arrayLetters = letters.match(/(.)\1*/g);
+console.log(arrayLetters);
+
+
+//contar las veces que se repite cada letra
+var repetition=[];
+for(let item of arrayLetters){
+    repetition.push(item.length)
+}
+console.log(repetition);
+
+//coger solo una letra de cada
+var arrayOneLetter =[];
+arrayLetters.forEach((letter)=>{
+arrayOneLetter.push(letter.charAt(0));
+});
+console.log(arrayOneLetter);
+
+//unir
+var result = arrayOneLetter.map(function (x, i) { 
+    return [x, repetition[i]] 
+    });
+
+console.log(result);
+
+document.getElementById("resultado").innerHTML = result;
+
+</script>
+    
+</body>
+</html>
